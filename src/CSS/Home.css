@@ -1,0 +1,29 @@
+.now_play_movies {
+    display: flex;
+    overflow-x: auto;
+    padding-bottom: 1rem;
+    gap: 1rem;
+    scrollbar-width: none;
+}
+
+.now_play_movies::-webkit-scrollbar {
+    display: none; 
+}
+
+.movie-card {
+    width: 10rem; 
+    flex-shrink: 0; 
+    border: none !important;
+}
+
+.movie-card img{
+    border-radius: 15px !important;
+    height: 12rem;
+    width: 10rem !important;
+}
+
+.movie-card img:hover{
+    box-shadow: 0px 1px 5px 1px gray;
+    cursor: pointer;
+}
+

@@ -20,13 +20,13 @@ export default function Signup(){
 
     return(
         <div style={{height:"100vh",padding:"0rem", margin:"0rem",color:"white",backgroundColor:"#f15a24"}}>
-            <Row className="sign_page">
+            <Row className="sign_page_row">
                 <Col style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
                     <img src={sign_img} alt="" />
                 </Col>
                 <Col style={{width:"90%"}}>
                     <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic",fontSize:"4rem"}}>CINEMA ELK</h2>
-                    <Card>
+                    <Card style={{backgroundColor:'#f15a24',border:"none"}}>
                         <Card.Body>
                             <Form className="signin_form">
                                 <Form.Group className="mb-3" controlId="formBasicEmail">

@@ -17,14 +17,14 @@ export default function Signin(){
     }
 
     return(
-        <div style={{height:"100vh",padding:"0rem", margin:"0rem",color:"white",backgroundColor:"#f15a24"}}>
-            <Row className="sign_page">
+        <div style={{height:"100vh",width:"100%",color:"white",backgroundColor:"#f15a24"}}>
+            <Row className="sign_page_row">
                 <Col style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
                     <img src={sign_img} alt="" />
                 </Col>
-                <Col style={{width:"90%"}}>
+                <Col>
                     <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic",fontSize:"4rem"}}>CINEMA ELK</h2>
-                    <Card>
+                    <Card style={{backgroundColor:'#f15a24',border:"none"}}>
                         <Card.Body>
                             <Form className="signin_form">
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
@@ -40,7 +40,7 @@ export default function Signin(){
                             </Button>
                         </Card.Body>
                     </Card>
-                    <div style={{marginTop:"1rem",display:"flex", alignItems:"center", justifyContent:"center"}}>
+                    <div style={{marginTop:"1rem",display:"flex", alignItems:"center", justifyContent:"center",width:"90%"}}>
                         <p>Join the club,  <a className="link" onClick={()=>navigate('/signup')}> Click here!</a> </p>
                     </div>
                 </Col>
