@@ -11,7 +11,7 @@ import { firestore,auth } from "../firebase";
 import { collection,addDoc,doc,getDoc,setDoc, getDocs,onSnapshot } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
-function StarRating({ rating }) {
+export function StarRating({ rating }) {
     const getStarIcon = (index) => {
         if (rating >= index + 1) {
             return <FaStar key={index} color="#ffc107" />;
