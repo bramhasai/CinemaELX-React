@@ -9,15 +9,18 @@ import profile from './assets/profile.png';
 import movie from './assets/movie.png';
 import home from './assets/home.png';
 
-import Signin from './pages/Signin'
-import Signup from './pages/Signup'
-import Home from './pages/Home'
+
 import { useState,useEffect } from 'react';
-import MoviePage from './pages/MoviePage';
 
 import { auth,firestore } from './firebase';
 import { doc,setDoc,deleteDoc } from 'firebase/firestore';
 import { onAuthStateChanged, signOut } from 'firebase/auth';
+
+import Signin from './pages/Signin'
+import Signup from './pages/Signup'
+import Home from './pages/Home'
+import MoviePage from './pages/MoviePage';
+import ReviewPage from './pages/ReviewPage';
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
@@ -79,8 +82,8 @@ function App() {
             <Nav.Link onClick={()=>handleClick('/')}>
               <img style={{backgroundColor:activeLink==='/' || activeLink.startsWith('/movie-review') ? '#f15a24' : '#0d6efd'}} src={home} alt="" />
             </Nav.Link>
-            <Nav.Link onClick={()=>handleClick('/movie')}>
-              <img style={{backgroundColor:activeLink==='/movie' ? '#f15a24' : "#0d6efd"}} src={movie} alt="" />
+            <Nav.Link onClick={()=>handleClick('/reviews')}>
+              <img style={{backgroundColor:activeLink==='/reviews' ? '#f15a24' : "#0d6efd"}} src={movie} alt="" />
             </Nav.Link>
             <Nav.Link onClick={()=>handleClick('/profile')}>
               <img style={{backgroundColor:activeLink==='/profile' ? '#f15a24' : '#0d6efd'}} src={profile} alt="" />
@@ -94,6 +97,7 @@ function App() {
         <Route path='/signup' element={<Signup />}/>
         <Route path='/' element={<Home />}/>
         <Route path='/movie-review/:id' element={<MoviePage />}/>
+        <Route path='/reviews' element={<ReviewPage />}/>
       </Routes>
     </div>
   )

@@ -42,8 +42,6 @@ export default function MoviePage(){
         rating:0
     })
     const [currentUser,setCurrentUser] = useState(null);
-    const [userReviewExists, setUserReviewExists] = useState(false);
-
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
@@ -128,7 +126,6 @@ export default function MoviePage(){
                 const movieRef = doc(firestore,"movies",String(movie.id));
                 const reviewCollectionRef = collection(movieRef,"reviews");
                 await addDoc(reviewCollectionRef,newReview);
-                setUserReviewExists(true);
                 handleClose();
             }            
         }
