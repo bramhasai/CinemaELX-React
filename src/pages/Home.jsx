@@ -52,8 +52,8 @@ export default function Home(){
                         return(
                             <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
-                                <Card.Body>
-                                    <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
+                                <Card.Body style={{padding:"0.5rem 0rem"}}>
+                                    <Card.Text style={{padding:"0rem 0rem",textAlign:"center"}}>
                                         {movie.title.length>=15?movie.title.substring(0, 15) + "..." :movie.title}
                                     </Card.Text>
                                 </Card.Body>
@@ -68,7 +68,7 @@ export default function Home(){
                 <div className="now_play_movies">
                     {popular_movies.map((movie)=>{
                         return(
-                            <Card className="movie-card" key={movie.id}>
+                            <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
                                 <Card.Body>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
@@ -86,7 +86,7 @@ export default function Home(){
                 <div className="now_play_movies">
                     {top_rated.map((movie)=>{
                         return(
-                            <Card className="movie-card" key={movie.id}>
+                            <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
                                 <Card.Body>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
@@ -104,7 +104,7 @@ export default function Home(){
                 <div className="now_play_movies">
                     {upcoming_movies.map((movie)=>{
                         return(
-                            <Card className="movie-card" key={movie.id}>
+                            <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path}/>
                                 <Card.Body>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>

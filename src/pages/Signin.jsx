@@ -7,13 +7,38 @@ import '../CSS/Signin.css';
 import { useNavigate } from "react-router-dom";
 
 
+// authentiation imports
+import  {auth}  from "../firebase";
+import { signInWithEmailAndPassword,sendPasswordResetEmail } from "firebase/auth";
+
 export default function Signin(){
     const [email,setEmail] = useState("");
     const [password,setPassword] = useState("");
+    const [error,setError] = useState("");
     const navigate = useNavigate();
 
-    const handleLogin = ()=>{
-        alert("Hello login");
+    async function handleLogin(){
+        try{
+            const userCredentials = await signInWithEmailAndPassword(auth,email,password);
+            const user = userCredentials.user;
+            // if(!user.emailVerified){
+            //     alert("Please verify your email");
+            //     await auth.signOut();
+            //     return;
+            // }
+            navigate('/')
+        }catch(err){
+            setError("Login failed: "+err.message);
+        }
+    }
+
+    async function handleForgotPassword(){
+        try{
+            await sendPasswordResetEmail(auth,email);
+            alert("Password reset email sent. Please check your inbox.")
+        }catch(err){
+            setError("Error: " + err.message);
+        }
     }
 
     return(
@@ -38,10 +63,15 @@ export default function Signin(){
                             <Button onClick={handleLogin} className="signin_button" variant="primary" type="submit">
                                     Login Now
                             </Button>
+                            
+                            {error && <p style={{ color: "black" }}>{error}</p>}
                         </Card.Body>
                     </Card>
-                    <div style={{marginTop:"1rem",display:"flex", alignItems:"center", justifyContent:"center",width:"90%"}}>
-                        <p>Join the club,  <a className="link" onClick={()=>navigate('/signup')}> Click here!</a> </p>
+                    <div style={{display:"flex", alignItems:"center", justifyContent:"center",width:"90%"}}>
+                            <Button onClick={handleForgotPassword} className="signin_button" variant="link" style={{ color: "white",border:"none",width:"auto" }}>
+                                Forgot Password?
+                            </Button>
+                            <p style={{marginBottom:"0rem"}}>| Join the club,  <a className="link" onClick={()=>navigate('/signup')}> Click here!</a> </p>
                     </div>
                 </Col>
             </Row>
