@@ -21,6 +21,8 @@ import Signup from './pages/Signup'
 import Home from './pages/Home'
 import MoviePage from './pages/MoviePage';
 import ReviewPage from './pages/ReviewPage';
+import Profile from './pages/profile';
+
 
 <style>
     @import url('https://fonts.googleapis.com/css2?family=Shrikhand&display=swap');
@@ -98,6 +100,7 @@ function App() {
         <Route path='/' element={<Home />}/>
         <Route path='/movie-review/:id' element={<MoviePage />}/>
         <Route path='/reviews' element={<ReviewPage />}/>
+        <Route path='/profile' element={<Profile />} />
       </Routes>
     </div>
   )

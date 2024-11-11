@@ -1,0 +1,65 @@
+.myReviews{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 1.4rem;
+}
+
+.heading_div{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+    gap: 0.5rem;
+    padding-bottom: 0.5rem;
+    margin-bottom: 0.2rem;
+    border-bottom: 2px solid black;
+    width: 100%;
+}
+
+.heading_div img{
+    height: 2.3rem;
+    width: 2.3rem;
+    border-radius: 50%;
+}
+
+.review_div{
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;  
+    margin: 0rem; 
+    padding-right: 1rem;
+    gap: 0.5rem;
+}
+
+.review-body{
+    display: grid;
+    grid-template-columns: 78% 22%;
+    padding: 0.5rem 1rem;
+    align-items: center;
+    justify-content:center;
+}
+
+.review-card{
+    height: 37vh;
+}
+
+.review-card:hover{
+    background-color:#f1f5fb;
+}
+
+.reviews_div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+.buttons{
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.buttons img:hover{
+    cursor: pointer;
+}

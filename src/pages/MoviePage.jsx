@@ -8,7 +8,7 @@ const API_KEY = 'a0aa117344e38c46e616b4af160b2d01';
 import cast_profile from '../assets/cast.png'
 import { FaStar, FaStarHalfAlt, FaRegStar } from 'react-icons/fa';
 import { firestore,auth } from "../firebase";
-import { collection,addDoc,doc,getDoc,setDoc, getDocs,onSnapshot } from "firebase/firestore";
+import { collection,addDoc,doc,getDoc,setDoc, getDocs,onSnapshot, updateDoc } from "firebase/firestore";
 import { onAuthStateChanged } from "firebase/auth";
 
 export function StarRating({ rating }) {
@@ -41,6 +41,9 @@ export default function MoviePage(){
         content:"",
         rating:0
     })
+
+    // const [myReviews,setMyReviews] = useState([]); 
+
     const [currentUser,setCurrentUser] = useState(null);
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
@@ -93,7 +96,7 @@ export default function MoviePage(){
             const reviewCollectionRef = collection(movieRef,"reviews");
             const unsubscribe = onSnapshot(reviewCollectionRef, (snapshot) => {
                 const reviewList = snapshot.docs.map((doc) => doc.data());
-                setReviews(reviewList); // Update reviews state with the latest data
+                setReviews(reviewList);
             });
     
             // Cleanup listener on unmount
@@ -117,7 +120,10 @@ export default function MoviePage(){
                         name:currentUser.displayName || currentUser.email,
                         username:currentUser.displayName || currentUser.email,
                         avatar_path: currentUser.photoURL || "",
-                        rating: userReview.rating
+                        rating: userReview.rating,
+                        poster_path:movie.poster_path,
+                        movieTitle:movie.title,
+                        movieID:movie.id
                     },
                     content:userReview.content,
                     created_at: new Date().toISOString(),
@@ -125,11 +131,19 @@ export default function MoviePage(){
                 setUserReview({content:"",rating:0})
                 const movieRef = doc(firestore,"movies",String(movie.id));
                 const reviewCollectionRef = collection(movieRef,"reviews");
-                await addDoc(reviewCollectionRef,newReview);
+                const reviewRefID= await addDoc(reviewCollectionRef,newReview);
+                await updateDoc(reviewRefID,{reviewDoc_id: reviewRefID.id});
+
+                const myReviewRef = doc(firestore,"users",currentUser.uid);
+                const myReviewCollectionRef = collection(myReviewRef,"myReviews");
+                const reviewDocRef=await addDoc(myReviewCollectionRef,newReview);
+                await updateDoc(reviewDocRef,{
+                    myReviewDoc_id: reviewDocRef.id,
+                    allReviewDoc_id:reviewRefID.id,
+                });
                 handleClose();
             }            
-        }
-        
+        } 
     }
 
     return(
@@ -152,7 +166,7 @@ export default function MoviePage(){
                                 rating = Math.max(0, Math.min(10, rating));
                                 event.target.value = rating;
                                 setUserReview({...userReview,rating});
-                            }} style={{border:"none",outline:"none",width:"5rem", borderBottom:"2px solid black"}} type="number" min={0} max={10} step={0.5}/> out of 10</h6>
+                            }} style={{textAlign:"center",border:"none",outline:"none",width:"5rem", borderBottom:"2px solid black"}} type="number" min={0} max={10} step={0.5}/> out of 10</h6>
                         </Modal.Body>
                         <Modal.Footer>
                             <Button variant="secondary" onClick={handleClose}>
