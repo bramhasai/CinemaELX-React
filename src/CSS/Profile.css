@@ -60,6 +60,11 @@
     gap: 2rem;
 }
 
+.buttons img{
+    padding: 0.6rem;
+    border-radius: 50%;
+    
+}
 .buttons img:hover{
     cursor: pointer;
 }

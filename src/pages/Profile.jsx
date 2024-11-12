@@ -119,8 +119,8 @@ export default function Profile() {
                                     <p style={{margin:"0rem"}}>{review.content.length>75 ?review.content.substring(0,75)+'...':review.content}</p>
                                     <div className="buttons">
                                         <Button variant="primary" onClick={() => handleShow(review)}>Read more</Button>
-                                        <img src={editIcon} alt="" onClick={()=>handleShowEdit(review)} />
-                                        <img src={deleteIcon} alt="" onClick={()=>handleDelete(review)}/>
+                                        <img style={{backgroundColor:"#ffbd59"}} src={editIcon} alt="" onClick={()=>handleShowEdit(review)} />
+                                        <img style={{backgroundColor:"#ff5757"}} src={deleteIcon} alt="" onClick={()=>handleDelete(review)}/>
                                     </div>
                                 </div>
                                 <img src={IMAGE_URL+review.author_details.poster_path} style={{height:"30vh"}} alt="" />
