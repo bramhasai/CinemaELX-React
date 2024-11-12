@@ -45,15 +45,15 @@ export default function Signup(){
     }
 
     return(
-        <div style={{height:"100vh",padding:"0rem", margin:"0rem",color:"white",backgroundColor:"#f15a24"}}>
+        <div style={{width:"100%",height:"100vh",padding:"0rem", margin:"0rem",color:"white",backgroundColor:"#f15a24"}}>
             <Row className="sign_page_row">
-                <Col style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+                <Col className="signCol-1">
                     <img src={sign_img} alt="" />
                 </Col>
-                <Col style={{width:"90%"}}>
-                    <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic",fontSize:"4rem"}}>CINEMA ELK</h2>
+                <Col className="signCol-2">
+                    <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic"}}>CINEMA ELK</h2>
                     <Card style={{backgroundColor:'#f15a24',border:"none"}}>
-                        <Card.Body>
+                        <Card.Body className="sign-card-body">
                             <Form className="signin_form">
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Control type="email" placeholder="Enter email address" onChange={(e)=>setEmail(e.target.value)}/>
@@ -71,7 +71,7 @@ export default function Signup(){
                             <Button onClick={handleSignup} className="signin_button" variant="primary" type="submit">
                                 Join the club
                             </Button>
-                            {error && <p style={{ color: "black" }}>{error}</p>}
+                            {error && <p style={{ color: "black",marginBottom:"0rem",marginTop:"0.5rem",textAlign:"center" }}>{error}</p>}
                         </Card.Body>
                     </Card>
                     <div style={{marginTop:"1rem",display:"flex", alignItems:"center", justifyContent:"center"}}>

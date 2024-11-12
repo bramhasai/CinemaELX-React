@@ -100,8 +100,8 @@ export default function Profile() {
     }
 
     return (
-        <div style={{ marginLeft: "7rem", padding: "1rem", overflowY: "auto", height: "88vh", scrollbarWidth: "none" }}>
-            <h4>My Reviews</h4>
+        <div className="profile_div">
+            <h3>My Reviews</h3>
             <div className="myReviews">
                 {myReviews.map((review,index)=>{
                     return(
@@ -119,11 +119,13 @@ export default function Profile() {
                                     <p style={{margin:"0rem"}}>{review.content.length>75 ?review.content.substring(0,75)+'...':review.content}</p>
                                     <div className="buttons">
                                         <Button variant="primary" onClick={() => handleShow(review)}>Read more</Button>
-                                        <img style={{backgroundColor:"#ffbd59"}} src={editIcon} alt="" onClick={()=>handleShowEdit(review)} />
-                                        <img style={{backgroundColor:"#ff5757"}} src={deleteIcon} alt="" onClick={()=>handleDelete(review)}/>
+                                        <div>
+                                            <img style={{backgroundColor:"#ffbd59"}} src={editIcon} alt="" onClick={()=>handleShowEdit(review)} />
+                                            <img style={{backgroundColor:"#ff5757"}} src={deleteIcon} alt="" onClick={()=>handleDelete(review)}/>
+                                        </div> 
                                     </div>
                                 </div>
-                                <img src={IMAGE_URL+review.author_details.poster_path} style={{height:"30vh"}} alt="" />
+                                <img src={IMAGE_URL+review.author_details.poster_path} className="posterImg_profile" alt="" />
                             </Card.Body>
                         </Card>
                     )

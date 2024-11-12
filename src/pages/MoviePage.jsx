@@ -147,10 +147,10 @@ export default function MoviePage(){
     }
 
     return(
-        <div style={{marginLeft:"7rem",padding:"1rem",overflowY:"auto",height:"88vh",scrollbarWidth:"none"}}>
-            <Row style={{display:"grid",gridTemplateColumns:"50% 50%", scrollbarWidth:"none"}}>
-                <Col style={{borderRight:"2px solid gray"}}> 
-                    <img src={IMAGE_URL+movie.poster_path} height={350} width={300} alt="" />
+        <div className="movie-page-div">
+            <Row className="row_movie_page" >
+                <Col className="movie-page-col-1"> 
+                    <img className="poster" src={IMAGE_URL+movie.poster_path} alt="" />
                     <h5 style={{margin:"1rem 0rem"}}>{movie.title}</h5>
                     <Button variant="primary" className="ReviewPost" onClick={handleShow}>Post Review</Button>
 
@@ -208,9 +208,9 @@ export default function MoviePage(){
                             return(
                                 <Card className="similar_movie" key={index} onClick={()=> handleClick(movie)}>
                                     <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
-                                    <Card.Body style={{padding:"0.5rem 0rem"}}>
+                                    <Card.Body className="similar_cardbody" style={{padding:"0.5rem 0rem"}}>
                                         <Card.Text style={{textAlign:"center",fontSize:"0.8rem"}}>
-                                            {movie.title.length>15?movie.title.substring(0, 15) + "..." :movie.title}
+                                            {movie.title.length>13?movie.title.substring(0, 13) + "..." :movie.title}
                                         </Card.Text>
                                     </Card.Body>
                                 </Card>
@@ -219,12 +219,11 @@ export default function MoviePage(){
                     </div>
                     
                 </Col>
-                <Col> 
-                    <h5 style={{marginBottom:"2rem"}}><i>Reviews By Cinema ELK Users</i></h5>
+                <Col className="movie-page-col-2"> 
+                    <h5><i>Reviews By Cinema ELK Users</i></h5>
                     {reviews.length > 0 ? (
                         <div className="reviews">
                             {reviews.map((review,index)=>{
-                                console.log(review);
                                 return(
                                     <div key={index} className="review">
                                         <div className="review_div">

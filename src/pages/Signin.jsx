@@ -42,15 +42,15 @@ export default function Signin(){
     }
 
     return(
-        <div style={{height:"100vh",width:"100%",color:"white",backgroundColor:"#f15a24"}}>
+        <div style={{color:"white",backgroundColor:"#f15a24",width:"100%",height:"100vh"}}>
             <Row className="sign_page_row">
-                <Col style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center"}}>
+                <Col className="signCol-1">
                     <img src={sign_img} alt="" />
                 </Col>
-                <Col>
-                    <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic",fontSize:"4rem"}}>CINEMA ELK</h2>
+                <Col className="signCol-2">
+                    <h2 style={{fontFamily:"Shrikhand", fontStyle:"italic"}}>CINEMA ELK</h2>
                     <Card style={{backgroundColor:'#f15a24',border:"none"}}>
-                        <Card.Body>
+                        <Card.Body className="sign-card-body">
                             <Form className="signin_form">
                                 <Form.Group className="mb-3" controlId="formBasicEmail">
                                     <Form.Control type="email" placeholder="Enter email address" onChange={(e)=>setEmail(e.target.value)}/>
@@ -64,14 +64,14 @@ export default function Signin(){
                                     Login Now
                             </Button>
                             
-                            {error && <p style={{ color: "black" }}>{error}</p>}
+                            {error && <p style={{ color: "black",marginBottom:"0rem",marginTop:"0.5rem",textAlign:"center" }}>{error}</p>}
                         </Card.Body>
                     </Card>
-                    <div style={{display:"flex", alignItems:"center", justifyContent:"center",width:"90%"}}>
-                            <Button onClick={handleForgotPassword} className="signin_button" variant="link" style={{ color: "white",border:"none",width:"auto" }}>
+                    <div className="bottom_sign">
+                            <Button onClick={handleForgotPassword}  variant="link" style={{ color: "white",border:"none",width:"auto"}}>
                                 Forgot Password?
                             </Button>
-                            <p style={{marginBottom:"0rem"}}>| Join the club,  <a className="link" onClick={()=>navigate('/signup')}> Click here!</a> </p>
+                            <p style={{marginBottom:"0rem"}}>Join the club,  <a className="link" onClick={()=>navigate('/signup')}> Click here!</a> </p>
                     </div>
                 </Col>
             </Row>

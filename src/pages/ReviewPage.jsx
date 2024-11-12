@@ -11,23 +11,7 @@ const TOP_RATED ='https://api.themoviedb.org/3/movie/top_rated?api_key=a0aa11734
 import cast_profile from '../assets/cast.png'
 import '../CSS/ReviewPage.css'
 import { StarRating } from "./MoviePage";
-// function StarRating({ rating }) {
-//     const getStarIcon = (index) => {
-//         if (rating >= index + 1) {
-//             return <FaStar key={index} color="#ffc107" />;
-//         } else if (rating >= index + 0.5) {
-//             return <FaStarHalfAlt key={index} color="#ffc107" />;
-//         } else {
-//             return <FaRegStar key={index} color="#ffc107" />;
-//         }
-//     };
 
-//     return (
-//         <div className="star-rating">
-//             {[0, 1, 2, 3, 4].map((index) => getStarIcon(index))}
-//         </div>
-//     );
-// }
 
 export default function ReviewPage(){
     const [moviesList,setMoviesList] = useState([]);
@@ -99,18 +83,17 @@ export default function ReviewPage(){
     
 
     return(
-        <div className="reviews_div" style={{marginLeft:"7rem",padding:"1rem",overflowY:"auto",height:"88vh",scrollbarWidth:"none"}}>
+        <div className="reviews_page_div" >
             {selectedUser && (
                 <Button variant="secondary" onClick={handleBackClick} style={{ marginBottom: "1rem" }}>
                    Back to Random Reviews
                 </Button>
             )}
             {displayReviews.map((review,index)=>{
-                console.log(review)
                 return(
-                    <Card key={index} className="review-card">
-                        <Card.Body className="review-body">
-                            <div className="review_div">
+                    <Card key={index} className="review_page-card">
+                        <Card.Body className="review_page-body">
+                            <div className="review_page_div">
                                 <div className="heading_div">
                                     <img height={50} src={review.author_details.avatar_path ? IMAGE_URL+review.author_details.avatar_path : cast_profile} alt="" 
                                         onClick={() => handleUserClick(review.author_details.username)}
@@ -122,7 +105,7 @@ export default function ReviewPage(){
                                 <p style={{margin:"0rem"}}>{review.content.length>75 ?review.content.substring(0,75)+'...':review.content}</p>
                                 <Button variant="primary" onClick={() => handleShow(review)}>Read more</Button>
                             </div>
-                            <img src={IMAGE_URL+review.moviePoster} style={{height:"30vh"}} alt="" />
+                            <img src={IMAGE_URL+review.moviePoster} className="poster_review_img" alt="" />
                         </Card.Body>
                     </Card>
                 )

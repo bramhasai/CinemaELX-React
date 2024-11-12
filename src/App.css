@@ -1,50 +1,92 @@
-.navbar{
-    height: 12vh;
-    border-bottom: 1px solid gray;
+
+@media(min-width:350px){
+    .navbar{
+        height: 12vh;
+        border-bottom: 1px solid gray;
+    }
+
+    .navbar-brand{
+        display: flex;
+        align-items: center !important;
+        justify-content: start !important;
+        gap: 0.5rem;
+        cursor: pointer; 
+    }
+
+    .container{
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        margin: 0 !important;
+        width: 100% !important;
+        /* margin-left: 2.5rem !important; */
+        padding: 0rem 1rem;
+    }
+
+    .container button{
+        width: auto;
+    }
+    
+    .sidebar {
+        position:absolute;
+        height: 8vh;
+        width: 100%; 
+        background-color: #f8f9fa;
+        display: flex;
+        align-items: start;
+        justify-content: center;
+        /* padding: 0.5rem; */
+    }
+    .flex-column{
+        width: 100%;
+        height: 8vh;
+        display: flex;
+        flex-direction: row !important;
+        align-items: center;
+        justify-content: space-around;
+    }
+
+    .sidebar img{
+        height: 3rem;
+        border-radius: 50%;
+        padding:0.5rem;
+        /* margin-top: 1.5rem; */
+        /* background-color: rgb(64, 64, 251); */
+        cursor: pointer;
+    }
 }
 
-.navbar-brand{
-    display: flex;
-    align-items: center !important;
-    justify-content: start !important;
-    gap: 0.5rem;
-    cursor: pointer; 
+@media(min-width:750px){
+    .container button{
+        width: 8rem;
+    }
+    .sidebar {
+        position:absolute;
+        height: 88vh;
+        width: 6rem; 
+        background-color: #f8f9fa;
+        border-right:1px solid gray ;
+    }
+
+    .flex-column{
+        height: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: start;
+       
+    }
+
+    .sidebar img{
+        margin-top: 1.5rem;
+        cursor: pointer;
+    }
 }
 
-.container{
-    margin: 0 !important;
-    width: 100% !important;
-    margin-left: 2.5rem !important;
-    padding: 0rem 1rem;
-}
 
-.container button{
-    width: 8rem;
-}
 
-.sidebar {
-    position:absolute;
-    height: 88vh;
-    width: 6rem; 
-    background-color: #f8f9fa;
-    display: flex;
-    flex-direction: column;
-    border-right:1px solid gray ;
-}
 
-.flex-column{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-}
 
-.sidebar img{
-    height: 3rem;
-    border-radius: 50%;
-    padding:0.5rem;
-    margin-top: 1.5rem;
-    /* background-color: rgb(64, 64, 251); */
-    cursor: pointer;
-}
+
+
+
 

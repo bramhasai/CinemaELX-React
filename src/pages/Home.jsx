@@ -44,7 +44,7 @@ export default function Home(){
 
 
     return(
-        <div style={{marginLeft:"7rem",padding:"1rem",overflowY:"auto",height:"88vh",scrollbarWidth:"none"}}>
+        <div className="home_div">
             <div className="now_playing">
                 <h5>Now Playing</h5>
                 <div className="now_play_movies">
@@ -52,7 +52,7 @@ export default function Home(){
                         return(
                             <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
-                                <Card.Body style={{padding:"0.5rem 0rem"}}>
+                                <Card.Body className="movie-card-body" style={{padding:"0.5rem 0rem"}}>
                                     <Card.Text style={{padding:"0rem 0rem",textAlign:"center"}}>
                                         {movie.title.length>=15?movie.title.substring(0, 15) + "..." :movie.title}
                                     </Card.Text>
@@ -70,7 +70,7 @@ export default function Home(){
                         return(
                             <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
-                                <Card.Body>
+                                <Card.Body className="movie-card-body" style={{padding:"0.5rem 0rem"}}>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
                                         {movie.title.length>=15?movie.title.substring(0, 15) + "..." :movie.title}
                                     </Card.Text>
@@ -88,7 +88,7 @@ export default function Home(){
                         return(
                             <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path} />
-                                <Card.Body>
+                                <Card.Body className="movie-card-body" style={{padding:"0.5rem 0rem"}}>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
                                         {movie.title.length>=15?movie.title.substring(0, 15) + "..." :movie.title}
                                     </Card.Text>
@@ -106,7 +106,7 @@ export default function Home(){
                         return(
                             <Card className="movie-card" key={movie.id} onClick={()=> handleClick(movie)}>
                                 <Card.Img variant="top" src={IMAGE_URL+movie.poster_path}/>
-                                <Card.Body>
+                                <Card.Body className="movie-card-body" style={{padding:"0.5rem 0rem"}}>
                                     <Card.Text style={{padding:"0.5rem 0rem",textAlign:"center"}}>
                                         {movie.title.length>=15?movie.title.substring(0, 15) + "..." :movie.title}
                                     </Card.Text>
